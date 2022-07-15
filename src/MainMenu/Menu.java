@@ -49,7 +49,7 @@ public class Menu {
     public static void registration(){
         System.out.println();
         System.out.println("**********************************");
-        System.out.println("\tUSER REGISTRATION");
+        System.out.println("\t\tUSER REGISTRATION");
         System.out.println("**********************************");
         System.out.println();
         System.out.println("Are you Student or Professor?");
@@ -60,8 +60,7 @@ public class Menu {
                            "3. Menu");
         Scanner sc = new Scanner(System.in);
         int select = sc.nextInt();
-        do {
-            switch (select){
+            switch (select) {
                 case 1:
                     studentRegistration();
                     break;
@@ -75,22 +74,40 @@ public class Menu {
                     System.out.println("Please select a correct option");
                     break;
             }
-        }while(select != 0);
     }
     public static void studentRegistration(){
         System.out.println("Please type your age");
-        Student user = new Student();
         Scanner sc = new Scanner(System.in);
-        int keyboard = 0;
-        keyboard = sc.nextInt();
-        if (keyboard <18)
+        int age = sc.nextInt();
+        String info = "";
+        info = sc.nextLine();
+        if (age >=18)
         {
-            System.out.println("Sorry, you must be at least 18 years");
-        }else {
-            user.setAge(keyboard);
-            System.out.println(user.getAge());
-        }
+            System.out.println("Please type your DNI");
+            String DNI = sc.nextLine();
+            System.out.println("Please type your name");
+            String name = sc.nextLine();
+            System.out.println("Please type your surname");
+            String surname = sc.nextLine();
+            System.out.println();
+            String id = "";
+            id = "S-" + DNI;
+            Student student = new Student(DNI, name, surname, age, id);
+            student.setAge(age);
+            student.setDNI(DNI);
+            student.setName(name);
+            student.setSurname(surname);
+            student.setId(id);
+            System.out.println("**************************");
+            System.out.println("Register completed!!!");
+            System.out.println("ID: "+student.getId() +"\nName: " + student.getName()
+                    + " " + student.getSurname() + "\nAge: " + student.getAge());
+            System.out.println("**************************");
+            generalMenu();
 
+        }else {
+            System.out.println("Sorry, you must be at least 18 years");
+        }
     }
     public static void professorRegistration(){
 

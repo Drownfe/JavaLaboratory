@@ -5,15 +5,27 @@ public class User {
     private String name;
     private String surname;
     private int age;
+    private String id;
+
 
     public User() {
     }
 
-    public User(String DNI, String name, String surname, int age) {
+    public User(String DNI, String name, String surname, int age, String id) {
         this.DNI = DNI;
         this.name = name;
         this.surname = surname;
         this.age = age;
+        this.id = id;
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDNI() {
