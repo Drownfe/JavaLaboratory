@@ -11,6 +11,10 @@ public class Student extends User{
     public Student() {
     }
     public static void studentRegistration(){
+        System.out.println("**********************************");
+        System.out.println("\t\tSTUDENT REGISTRATION");
+        System.out.println("**********************************");
+        System.out.println();
         System.out.println("Please type your age");
         Scanner sc = new Scanner(System.in);
         int age = sc.nextInt();
@@ -18,6 +22,7 @@ public class Student extends User{
         info = sc.nextLine();
         if (age >=18)
         {
+
             System.out.println("Please type your DNI");
             String DNI = sc.nextLine();
             System.out.println("Please type your name");
@@ -44,5 +49,4 @@ public class Student extends User{
             System.out.println("Sorry, you must be at least 18 years");
         }
     }
-
 }

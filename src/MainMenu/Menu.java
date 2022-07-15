@@ -1,5 +1,6 @@
 package MainMenu;
 
+import Users.Professor;
 import Users.Student;
 
 import java.util.Scanner;
@@ -59,6 +60,7 @@ public class Menu {
                            "2. Professor (P)\n" +
                            "3. Menu");
         Student student = new Student();
+        Professor professor = new Professor();
         Scanner sc = new Scanner(System.in);
         int select = sc.nextInt();
             switch (select) {
@@ -66,7 +68,7 @@ public class Menu {
                     student.studentRegistration();
                     break;
                 case 2:
-                    professorRegistration();
+                    professor.professorRegistration();
                     break;
                 case 3:
                     generalMenu();
@@ -75,8 +77,5 @@ public class Menu {
                     System.out.println("Please select a correct option");
                     break;
             }
-    }
-    public static void professorRegistration(){
-
     }
 }
