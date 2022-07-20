@@ -1,9 +1,11 @@
 package Data;
 import java.io.*;
 import java.util.List;
-import Exceptions.DAccess;
-import Exceptions.DReading;
-import Exceptions.DWriting;
+
+import Bicycle.TicketHistory;
+import Except.DAccess;
+import Except.DReading;
+import Except.DWriting;
 import Bicycle.Ticket;
 
 public class Accessing implements Access{
@@ -25,7 +27,7 @@ public class Accessing implements Access{
     }
 
     @Override
-    public void writeFile(String fileName, List<TicketsHistory> ticketFileList, boolean attach) throws DWriting {
+    public void writeFile(String fileName, List<TicketHistory> ticketFileList, boolean attach) throws DWriting {
 
     }
 

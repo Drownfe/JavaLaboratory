@@ -3,11 +3,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import Bicycle.Ticket;
+
 import Data.Accessing;
-import Exceptions.DAccess;
-import Exceptions.DReading;
-import Exceptions.DWriting;
+import Except.DAccess;
+import Except.DWriting;
 
 public class TicketHistory {
     private int code;
@@ -107,7 +106,6 @@ public class TicketHistory {
             throw new RuntimeException(e);
         }
     }
-
     public static void allTickets(){
         File file = new File("tickets.txt");
         try {
@@ -140,39 +138,64 @@ public class TicketHistory {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Insert the ticket's number: ");
+        System.out.println("Type the ticket's number: ");
         int code = sc.nextInt();
         for (String tickets : txtReader) {
             if(tickets.contains("T-"+code)){
                 System.out.println(tickets);
             }
-
         }
     }
-
+    public static void byStatus(){
+        File file = new File("tickets.txt");
+        try {
+            BufferedReader obj = new BufferedReader(new FileReader(file));
+            String read;
+            while ((read = obj.readLine()) != null ){
+                //System.out.println(read);
+                txtReader.add(read);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Type the status:\n" +
+                "1. Active\n" +
+                "2. Pending\n" +
+                "3. OK ");
+        String s = sc.nextLine();
+        int st = Integer.parseInt(s);
+        String option = null;
+        if(st == 1){
+            option = "Active";
+        }else if (st == 2) {option = "Pending";}
+        else if (st == 3) { option = "OK";}
+        for (String tickets : txtReader) {
+            if(tickets.contains(option)) {
+                System.out.println(tickets);
+            }
+        }
+    }
     public static void menuHistory(){
-
-
         System.out.println("**************************");
-        System.out.println("Welcome to history menu");
+        System.out.println("\tTICKETS HISTORY");
         System.out.println("**************************");
-
         System.out.println("Select a option:\n" +
-                "1. Show all tickets\n" +
-                "2. Search by code\n" +
-                "3. Search by status");
+                "1. All tickets\n" +
+                "2. Search Code\n" +
+                "3. Search Status");
         String opt = sc.nextLine();
         int option = Integer.parseInt(opt);
-
         if (option == 1) {
-            System.out.println("all tickets");
+            System.out.println("All tickets");
             allTickets();
         } else if (option == 2) {
-            System.out.println("by code");
+            System.out.println("By code");
             byCode();
         }
         else if (option == 3) {
-            System.out.println("by status");
+            System.out.println("By status");
             byStatus();
         }
     }

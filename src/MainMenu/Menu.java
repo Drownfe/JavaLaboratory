@@ -1,6 +1,7 @@
 package MainMenu;
 
 import Bicycle.BorrowBicycle;
+import Except.DAccess;
 import User.RegisterUser;
 
 
@@ -25,7 +26,6 @@ public class Menu {
     }
     public static void selectMenu() {
         Scanner sc = new Scanner(System.in);
-        BorrowBicycle b = new BorrowBicycle();
         int select = sc.nextInt();;
         do{
             switch (select){
@@ -33,7 +33,12 @@ public class Menu {
                     RegisterUser.registration();
                     break;
                 case 2:
-                    //b.borrowBicycle();
+                    try {
+                        BorrowBicycle.fileReader();
+                    } catch (DAccess e) {
+                        throw new RuntimeException(e);
+                    }
+                    BorrowBicycle.borrowBicycle();
                     break;
                 case 3:
                     //returnBicycle();

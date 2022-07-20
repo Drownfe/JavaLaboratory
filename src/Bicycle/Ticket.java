@@ -1,6 +1,6 @@
 package Bicycle;
 import Data.Accessing;
-import Exceptions.DWriting;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -29,6 +29,7 @@ public class Ticket {
     public static List<String> statusList = new ArrayList<>();
     public static List<Double> amountList = new ArrayList<>();
     static Accessing impl = new Accessing();
+
     public Ticket(int code, String bicycle, String user, LocalDate date, LocalTime start, LocalTime end, boolean helmet, boolean condition, String status, double amount) {
         this.code = code;
         this.bicycle = bicycle;
@@ -47,6 +48,49 @@ public class Ticket {
         this.fullName = fullName;
         this.amount = amount;
         this.status = status;
+    }
+
+    public static void generateTicket(int code, String bicycle, String user, LocalDate date, LocalTime starTime, LocalTime endTime,boolean helmet, boolean condition, String status, double amount)  {
+        code ++;
+        Ticket ticket = new Ticket( code, bicycle, user, date, starTime, endTime, helmet, condition, status, amount);
+        ticket.setCode(code);
+        ticket.setBicycle(bicycle);
+        ticket.setUser(user);
+        ticket.setDate(date);
+        ticket.setStarTime(starTime);
+        ticket.setEndTime(endTime);
+        ticket.setHelmet(helmet);
+        ticket.setCondition(condition);
+        ticket.setStatus(status);
+        ticket.setAmount(amount);
+        ticketList.add(ticket);
+        codes.add(code);
+        bicyclelist.add(bicycle);
+        userlist.add(user);
+        dateList.add(date);
+        startTimeList.add(starTime);
+        endTimeList.add(endTime);
+        helmetList.add(helmet);
+        conditionList.add(condition);
+        statusList.add(status);
+        amountList.add(amount);
+        System.out.println(ticket.toString());
+    }
+
+    public static void updateTicket(int code, String bicycle, String user, LocalDate date, LocalTime starTime, LocalTime endTime,boolean helmet, boolean condition, String status, double amount) {
+        code ++;
+        Ticket ticket2 = new Ticket(code, bicycle, user, date, starTime, endTime, helmet, condition, status, amount);
+        ticket2.setCode(code);
+        ticket2.setBicycle(bicycle);
+        ticket2.setUser(user);
+        ticket2.setDate(date);
+        ticket2.setStarTime(starTime);
+        ticket2.setEndTime(endTime);
+        ticket2.setHelmet(helmet);
+        ticket2.setCondition(condition);
+        ticket2.setStatus(status);
+        ticket2.setAmount(amount);
+        System.out.println(ticket2.toString());
     }
     public static int getCode() {
         return code;
@@ -81,19 +125,19 @@ public class Ticket {
     }
 
     public LocalTime getStarTime() {
-        return starTime;
+        return start;
     }
 
     public void setStarTime(LocalTime starTime) {
-        this.starTime = starTime;
+        this.start = start;
     }
 
     public LocalTime getEndTime() {
-        return endTime;
+        return end;
     }
 
     public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
+        this.end = end;
     }
 
     public boolean isHelmet() {
@@ -133,5 +177,20 @@ public class Ticket {
     }
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Code: T-" + code + "\n" +
+                        "Bicycle: " + bicycle + "\n" +
+                        "User: " + user + "\n" +
+                        "Date:" + date + "\n" +
+                        "Start time: " + start + "\n" +
+                        "End time:" + end + "\n" +
+                        "Helmet: " + helmet + "\n" +
+                        "Good condition: " + condition + "\n" +
+                        "Status: " + status + "\n" +
+                        "Amount:" + amount + "\n";
     }
 }

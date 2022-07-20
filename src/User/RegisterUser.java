@@ -9,13 +9,13 @@ import MainMenu.Menu;
 
 public class RegisterUser {
     static Scanner sc = new Scanner(System.in);
-    static List<User> users = new ArrayList<User>();
+    public static List<User> users = new ArrayList<User>();
 
-    static List<String> ids = new ArrayList<>();
+    public static List<String> ids = new ArrayList<>();
 
-    static List<String> names = new ArrayList<>();
+    public static List<String> names = new ArrayList<>();
 
-    static List<Boolean> debtList = new ArrayList<>();
+    public static List<Boolean> debtList = new ArrayList<>();
 
     public static void registration() {
         System.out.println();
@@ -65,22 +65,22 @@ public class RegisterUser {
             String surname = sc.nextLine();
             boolean debt = false;
             System.out.println();
-            String id = "S-" + DNI;
             User student = new Student(DNI, name, surname, age, debt);
+            String ID = ("S-" + DNI);
             student.setAge(age);
-            student.setDNI(DNI);
+            student.setDNI(ID);
             student.setName(name);
             student.setSurname(surname);
             System.out.println("**************************");
             System.out.println("Register completed!!!");
-            System.out.println("ID: " + id + "\nName: " + student.getName()
+            System.out.println("ID: " + student.getDNI() + "\nName: " + student.getName()
                     + " " + student.getSurname() + "\nAge: " + student.getAge());
             System.out.println("**************************");
-            Menu.generalMenu();
             users.add(student);
-            ids.add(id);
+            ids.add(ID);
             names.add(student.getName() + " " + student.getSurname());
             debtList.add(debt);
+            Menu.generalMenu();
         } else {
             System.out.println("Sorry, you must be at least 18 years");
         }
