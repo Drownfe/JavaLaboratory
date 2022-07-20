@@ -5,7 +5,6 @@ import MainMenu.Menu;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import MainMenu.Menu;
 
 public class RegisterUser {
     static Scanner sc = new Scanner(System.in);

@@ -1,6 +1,7 @@
 package MainMenu;
 
-import Bicycle.BorrowBicycle;
+import Bicycle.Borrow;
+import Bicycle.Return;
 import Except.DAccess;
 import User.RegisterUser;
 
@@ -34,14 +35,14 @@ public class Menu {
                     break;
                 case 2:
                     try {
-                        BorrowBicycle.fileReader();
+                        Borrow.fileReader();
                     } catch (DAccess e) {
                         throw new RuntimeException(e);
                     }
-                    BorrowBicycle.borrowBicycle();
+                    Borrow.borrowBicycle();
                     break;
                 case 3:
-                    //returnBicycle();
+                    Return.returnBicycle();
                     break;
                 case 4:
                     //payTicket();

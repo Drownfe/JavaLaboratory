@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../BiciU-Training/BiciU-Training.iml" filepath="$PROJECT_DIR$/../BiciU-Training/BiciU-Training.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaLaboratory.iml" filepath="$PROJECT_DIR$/JavaLaboratory.iml" />
     </modules>
   </component>
