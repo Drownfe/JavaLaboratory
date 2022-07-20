@@ -1,6 +1,5 @@
 package Bicycle;
 
-
 public class Bicycle {
     private String code;
     private String type;
@@ -14,9 +13,35 @@ public class Bicycle {
         this.isAvailable = isAvailable;
     }
 
-    public static void bikes(){
-        Bicycle bike1 = new Bicycle("BIC-01","Mountain","red",true);
+    public String getCode() {
+        return code;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
 }

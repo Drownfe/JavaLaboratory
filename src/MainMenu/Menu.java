@@ -1,6 +1,6 @@
 package MainMenu;
 
-import Bicycle.Borrow;
+import Bicycle.BorrowBicycle;
 import User.RegisterUser;
 
 
@@ -25,7 +25,7 @@ public class Menu {
     }
     public static void selectMenu() {
         Scanner sc = new Scanner(System.in);
-        Borrow b = new Borrow();
+        BorrowBicycle b = new BorrowBicycle();
         int select = sc.nextInt();;
         do{
             switch (select){
