@@ -1,31 +1,19 @@
-package Users;
+package User;
 
-public class User {
+public abstract class User {
     private String DNI;
     private String name;
     private String surname;
     private int age;
-    private String id;
+    private boolean debt;
 
-
-    public User() {
-    }
-
-    public User(String DNI, String name, String surname, int age, String id) {
+    public User(String DNI, String name, String surname, int age, boolean debt) {
         this.DNI = DNI;
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.id = id;
-
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.debt=debt;
+        debt = false;
     }
 
     public String getDNI() {
@@ -57,6 +45,14 @@ public class User {
     }
 
     public void setAge(int age) {
+        this.age = age;
+    }
 
+    public boolean isDebt() {
+        return debt;
+    }
+
+    public void setDebt(boolean debt) {
+        this.debt = debt;
     }
 }
