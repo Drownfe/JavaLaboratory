@@ -99,7 +99,7 @@ public class Return {
         String py = sc.nextLine();
         int pay = Integer.parseInt(py);
         if (pay == 1) {
-            //PayTicket.payTicket();
+            Pay.payTicket();
         } else if (pay == 2) {
             System.out.println("Thank you. Please pay your ticket, come back soon!!!");
         }
