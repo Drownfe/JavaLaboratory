@@ -8,8 +8,7 @@ import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Return {
-    static Scanner sc = new Scanner(System.in);
-    static String id;
+
     static boolean helmet;
     static boolean condition;
     static String status;
@@ -17,20 +16,11 @@ public class Return {
     static double amount;
     static int code;
     static int i;
-    public static void returnBicycle() {
-        System.out.println("**********************************");
-        System.out.println("\t\tBIKE RETURN");
-        System.out.println("**********************************");
-        System.out.println();
-        System.out.println("What's your ticket number?:\n");
-        String nb = sc.nextLine();
-        code = Integer.parseInt(nb);
-        if (codes.contains(code)) {
-            bicycleStatus();
-        } else {
-            System.out.println("Ticket not found, please try again");
-            boolean menu = true;
-        }
+    static Scanner sc = new Scanner(System.in);
+    public static void bicycleAvailable() {
+        String bicycleCode = bicyclelist.get(i );
+        int position = Borrow.codes.indexOf(bicycleCode);
+        Borrow.available.set(position , true);
     }
     public static void bicycleStatus() {
         String ticket = "T-" + code;
@@ -93,7 +83,7 @@ public class Return {
         conditionList.set(i,condition);
         statusList.set(i, status);
         bicycleAvailable();
-        System.out.println("Proceed payment?: \n" +
+        System.out.println("Want to pay right now?: \n" +
                 "1. Yes\n" +
                 "2. No");
         String py = sc.nextLine();
@@ -101,7 +91,22 @@ public class Return {
         if (pay == 1) {
             Pay.payTicket();
         } else if (pay == 2) {
-            System.out.println("Thank you. Please pay your ticket, come back soon!!!");
+            System.out.println("Please pay your ticket, come back soon!!!");
+        }
+    }
+    public static void returnBicycle() {
+        System.out.println("**********************************");
+        System.out.println("\t\tBIKE RETURN");
+        System.out.println("**********************************");
+        System.out.println();
+        System.out.println("What's your ticket number?:\n");
+        String nb = sc.nextLine();
+        code = Integer.parseInt(nb);
+        if (codes.contains(code)) {
+            bicycleStatus();
+        } else {
+            System.out.println("Ticket not found, please try again");
+            boolean menu = true;
         }
     }
     public static void debtCalculation() {
@@ -115,24 +120,19 @@ public class Return {
             }
             double timesLate = Math.floor(duration.toMinutes() / 30);
             double paidLate = timesLate * 3;
-            System.out.println("Must to pay " + paidLate + " usd.");
+            System.out.println("For been late you will have to pay $" + paidLate + " USD.");
             amount += paidLate;
         }
         if (helmet == false) {
             double paidHelmet = 5.0;
-            System.out.println("The bicycle was returned with no helmet, must to pay " + paidHelmet + " usd.");
+            System.out.println("The bicycle was returned with no helmet, you must pay $" + paidHelmet + " USD.");
             amount += paidHelmet;
         }
         if (condition == false) {
             double paidDamaged = 5.0;
-            System.out.println("The bicycle was returned damaged, must to pay " + paidDamaged + " usd.");
+            System.out.println("The bicycle was returned damaged, you must pay $" + paidDamaged + " USD.");
             amount += paidDamaged;
         }
         System.out.println("Total amount to pay: " + amount + " usd.");
-    }
-    public static void bicycleAvailable() {
-        String bicycleCode = bicyclelist.get(i );
-        int position = Borrow.codes.indexOf(bicycleCode);
-        Borrow.available.set(position , true);
     }
 }
