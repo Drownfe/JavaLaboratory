@@ -1,11 +1,11 @@
 package MainMenu;
 
 import Bicycle.Borrow;
+import Bicycle.Pay;
 import Bicycle.Return;
+import Bicycle.TicketHistory;
 import Except.DAccess;
 import User.RegisterUser;
-
-
 import java.util.Scanner;
 
 public class Menu {
@@ -45,10 +45,10 @@ public class Menu {
                     Return.returnBicycle();
                     break;
                 case 4:
-                    //payTicket();
+                    Pay.payTicket();
                     break;
                 case 5:
-                    //ticketHistory();
+                    TicketHistory.allTickets();
                 case 6:
                     System.out.println("It was a pleasure, please come back!!!");
                     System.exit(0);

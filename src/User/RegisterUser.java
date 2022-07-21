@@ -105,15 +105,15 @@ public class RegisterUser {
             String surname = sc.nextLine();
             System.out.println();
             boolean debt = false;
-            String id = "P-" + DNI;
+            String ID = "P-" + DNI;
             User professor = new Professor(DNI, name, surname, age,debt);
             professor.setAge(age);
-            professor.setDNI(DNI);
+            professor.setDNI(ID);
             professor.setName(name);
             professor.setSurname(surname);
             System.out.println("**************************");
             System.out.println("Register completed!!!");
-            System.out.println("ID: "+id +"\nName: " + professor.getName()
+            System.out.println("ID: "+professor.getDNI() +"\nName: " + professor.getName()
                     + " " + professor.getSurname() + "\nAge: " + professor.getAge());
             System.out.println("**************************");
             Menu.generalMenu();
